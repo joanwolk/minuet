@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script src="//connect.soundcloud.com/sdk.js"></script>
+    <script>
+      SC.initialize({
+        client_id: "7181d5e5013bf8a31bd66e7cbbaa05cc"
+      });
+    </script>
+  </head>
+  <body>
+    <div class='top'>
+      <a onclick="player.startPlayback();">Play</a><br>
+      <a onclick="player.pausePlayback();">Pause</a>
+    </div>
+
+    <script>
+      localStorage.listUrls = '{"urls":["https://soundcloud.com/joanwolk/test-sound", "https://soundcloud.com/joanwolk/test-2", "https://soundcloud.com/joanwolk/joan-beatbox"]}'
+
+      localStorage.listIds = '{"ids":[87688402, 87688441, 35500268]}'
+    </script>
+
+    <script src="Player.js"></script>
+
+  </body>
+</html>
