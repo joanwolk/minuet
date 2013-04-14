@@ -6,15 +6,12 @@
         client_id: "7181d5e5013bf8a31bd66e7cbbaa05cc"
       });
     </script>
+    <link rel="stylesheet" type="text/css" href="minuet.css">
   </head>
   <body>
     <script>
       localStorage.listTracks = '[{"id":"87688402", "title":"Test Sound"}, {"id":"87688441", "title":"Test 2"}, {"id":"35500268", "title":"Joan Beatbox"}]'
     </script>
-
-    <script src="Track.js"></script>
-    <script src="Queue.js"></script>
-    <script src="Player.js"></script>
 
     <div class='top'>
       <a onclick="player.startPlayback();">Play</a><br>
@@ -27,6 +24,17 @@
       <input type='text' name="newTrack" id="newTrack">
       <input type='submit' value="Add to queue">
     </form>
+
+    <div id='queue' class='table'>
+    </div>
+
+    <script src="Track.js"></script>
+    <script src="Queue.js"></script>
+    <script src="Player.js"></script>
+
+    <script src="TrackView.js"></script>
+    <script src="QueueView.js"></script>
+    <script src="AppView.js"></script>
 
   </body>
 </html>

@@ -1,0 +1,37 @@
+body{
+}
+
+.table {
+  background-color: #ddd;
+}
+
+.listRow:first-child {
+  border-top: 1px solid black;
+  padding-top: 5px;
+}
+
+.listRow {
+  font-family: sans-serif;
+  min-height: 2em;
+  margin: 5px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+}
+
+.listRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.listRow .cell {
+  float: left;
+  margin-left: 10px;
+}
+
+.listRow .cell.controls {
+}
+
+.listRow .cell.title {
+  margin-left: 20px;
+}

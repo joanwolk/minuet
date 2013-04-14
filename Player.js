@@ -1,8 +1,8 @@
 function Player(tracks) {
-  this.json_tracks = JSON.parse(tracks);
   this.currentTrack = 0;
   this.sound = null;
   this.queue = new Queue();
+  this.trackList = this.queue.list;
 };
 
 Player.prototype = {};
@@ -10,7 +10,7 @@ Player.prototype = {};
 Player.prototype.playNextSound = function() {
   var next = this.currentTrack + 1;
 
-  if (this.json_tracks[next]) {
+  if (this.trackList[next]) {
     this.currentTrack = next;
     this.stream();
     // TODO: this order reliance brittle!
@@ -21,7 +21,7 @@ Player.prototype.playNextSound = function() {
 
 Player.prototype.stream = function() {
   var me = this;
-  var track = this.json_tracks[this.currentTrack]['id'];
+  var track = this.trackList[this.currentTrack]['id'];
 
   SC.stream("/tracks/"+track, function(sound) {
     me.sound = sound;

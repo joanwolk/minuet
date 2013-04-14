@@ -17,7 +17,6 @@ Track.prototype.loadMetadata = function() {
   var me = this;
 
   SC.get("/tracks/"+this.id, function(response, error) {
-    console.log("response object: ",response);
     me.metadata = response;
     me.title = me.metadata.title;
   });
@@ -29,7 +28,6 @@ Track.fromUrl = function(url, callback) {
   }
 
   SC.get("/resolve?url="+url, function(response, error) {
-    console.log(response);
     var track = new Track();
     track.id = response.id;
     track.title = response.title;
