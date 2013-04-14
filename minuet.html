@@ -8,18 +8,25 @@
     </script>
   </head>
   <body>
+    <script>
+      localStorage.listTracks = '[{"id":"87688402", "title":"Test Sound"}, {"id":"87688441", "title":"Test 2"}, {"id":"35500268", "title":"Joan Beatbox"}]'
+    </script>
+
+    <script src="Track.js"></script>
+    <script src="Queue.js"></script>
+    <script src="Player.js"></script>
+
     <div class='top'>
       <a onclick="player.startPlayback();">Play</a><br>
       <a onclick="player.pausePlayback();">Pause</a>
     </div>
 
-    <script>
-      localStorage.listUrls = '{"urls":["https://soundcloud.com/joanwolk/test-sound", "https://soundcloud.com/joanwolk/test-2", "https://soundcloud.com/joanwolk/joan-beatbox"]}'
-
-      localStorage.listIds = '{"ids":[87688402, 87688441, 35500268]}'
-    </script>
-
-    <script src="Player.js"></script>
+    <form action="javascript:Track.fromUrl(document.getElementById('newTrack').value, function(response){
+      player.queue.add(response);
+      });">
+      <input type='text' name="newTrack" id="newTrack">
+      <input type='submit' value="Add to queue">
+    </form>
 
   </body>
 </html>
