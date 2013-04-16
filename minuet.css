@@ -1,4 +1,36 @@
 body{
+  font-size: 3em;
+  font-family: arial, sans-serif;
+}
+
+form {
+  width: 90%;
+  margin: 0.5em auto;
+}
+
+form input {
+  font-family: arial, sans-serif;
+}
+
+form input[type='text'] {
+  width: 100%;
+  font-size: 1em;
+  margin-bottom: 0.25em;
+}
+
+form a.button {
+  display: block;
+  text-align: center;
+  width: 45%;
+  font-size: 1em;
+  padding: 0.25em;
+  margin-top: 0.5em;
+  border: 1px solid #333;
+  border-radius: 1.5em;
+  background: #efefef;
+  background: linear-gradient(0deg, #bbb, #eee);
+  text-decoration: none;
+  color: black;
 }
 
 .table {
@@ -26,12 +58,18 @@ body{
 
 .listRow .cell {
   float: left;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .listRow .cell.controls {
+  margin-left: 10px;
+  width: 3em;
 }
 
 .listRow .cell.title {
-  margin-left: 20px;
+}
+
+.listRow .cell.remove {
+  margin-right: 10px;
+  float: right;
 }

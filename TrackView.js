@@ -1,3 +1,7 @@
+/**
+ * TrackView renders the DOM for a single track.
+ * The basic element is a div with class='listRow' and the track id as div id.
+ */
 function TrackView(track) {
   this.id = track.id;
   this.title = track.title;
@@ -8,6 +12,11 @@ function TrackView(track) {
 
 TrackView.prototype = {};
 
+/**
+ * Rendering the view returns the view object
+ * rather than the HTML, allowing greater flexibility,
+ * such as passing the track view to the queue view.
+ */
 TrackView.prototype.render = function() {
   var up = '<div class="up">up</div>';
   var down = '<div class="down">down</div>';
@@ -18,6 +27,4 @@ TrackView.prototype.render = function() {
   this.el.innerHTML = controls + title + remove;
 
   return this;
-
-  // return controls + title + remove;
 };

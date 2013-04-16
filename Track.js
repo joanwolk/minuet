@@ -1,3 +1,9 @@
+/**
+ * The Track model handles the key information about a sound.
+ * Only the id and the title are stored persistently in localStorage.
+ * Other elements of the track are fetched at the point of streaming,
+ * reducing the data storage needs and allowing more songs to be queued.
+ */
 function Track() {
   this.id = null;
   this.metadata = null;
@@ -8,11 +14,14 @@ function Track() {
   this.permalinkUrl = null;
   this.artworkUrl = null;
   this.duration = null;
-  // store only id, title, and duration in localStorage ?
+  // store only id, title, (duration?) in localStorage
 };
 
 Track.prototype = {};
 
+/**
+ * Get the metadata of the track
+ */
 Track.prototype.loadMetadata = function() {
   var me = this;
 
@@ -22,6 +31,9 @@ Track.prototype.loadMetadata = function() {
   });
 };
 
+/**
+ * Create a track from the user-facing SoundCloud URL
+ */
 Track.fromUrl = function(url, callback) {
   if (!url.match(/^https*\:\/\//)) {
     url = "http://"+url;

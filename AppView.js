@@ -1,3 +1,8 @@
+/**
+ * The AppView renders the Minuet app.
+ * It has references to the new track form and its input,
+ * as well as to the queue view.
+ */
 function AppView() {
   this.form = document.querySelector('form');
   this.input = document.querySelector('#newTrack');
@@ -18,9 +23,8 @@ AppView.prototype.render = function() {
 };
 
 
-// build table of queue items on queue list update
-AppView.prototype.updateQueueView = function() {
-};
-
+/**
+ * Instantiate the app
+ */
 var minuet = new AppView();
 minuet.render();

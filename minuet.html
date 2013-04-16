@@ -9,20 +9,17 @@
     <link rel="stylesheet" type="text/css" href="minuet.css">
   </head>
   <body>
-    <script>
-      localStorage.listTracks = '[{"id":"87688402", "title":"Test Sound"}, {"id":"87688441", "title":"Test 2"}, {"id":"35500268", "title":"Joan Beatbox"}]'
-    </script>
 
     <div class='top'>
       <a onclick="player.startPlayback();">Play</a><br>
       <a onclick="player.pausePlayback();">Pause</a>
     </div>
 
-    <form action="javascript:Track.fromUrl(document.getElementById('newTrack').value, function(response){
-      player.queue.add(response);
-      });">
+    <form id= "addTrack" action="">
       <input type='text' name="newTrack" id="newTrack">
-      <input type='submit' value="Add to queue">
+      <a href="#" class="button" onclick="Track.fromUrl(document.getElementById('newTrack').value, function(response){
+      player.queue.add(response);
+      });">Add to queue</a>
     </form>
 
     <div id='queue' class='table'>
