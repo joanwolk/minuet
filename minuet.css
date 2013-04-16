@@ -3,6 +3,17 @@ body{
   font-family: arial, sans-serif;
 }
 
+@media only screen 
+and (min-width : 1224px) {
+  body {
+    font-size: 2em;
+  }
+}
+
+.top a {
+  cursor: pointer;
+}
+
 form {
   width: 90%;
   margin: 0.5em auto;
