@@ -29,19 +29,19 @@ TrackView.prototype.render = function(index, queue) {
 
   this.el.innerHTML = controls + title + remove;
 
-  // set the index as a class on the track view main element
-  this.el.setAttribute('class', 'listRow '+index);
-
+  // bind onclick action to remove track from the queue
   var remover = this.el.querySelector(".remove");
   remover.addEventListener('click', function() {
     queue.remove(index);
   });
 
+  // bind onclick action to move track up in the queue
   var moveUp = this.el.querySelector(".up");
   moveUp.addEventListener('click', function() {
     queue.swap(index, -1);
   });
 
+  // bind onclick action to move track down in the queue
   var moveDown = this.el.querySelector(".down");
   moveDown.addEventListener('click', function() {
     queue.swap(index, 1);
