@@ -20,7 +20,14 @@ Player.prototype.startPlayback = function() {
  * Pause playback, using the queue's function
  */
 Player.prototype.pausePlayback = function() {
-  this.queue.pause();
+  this.queue.pausePlayback();
+};
+
+/**
+ * Clear the queue, using the queue's function
+ */
+Player.prototype.clearQueue = function() {
+  this.queue.clear();
 };
 
 

@@ -40,6 +40,9 @@ Track.fromUrl = function(url, callback) {
   }
 
   SC.get("/resolve?url="+url, function(response, error) {
+    if (error) {
+      return alert(error);
+    }
     var track = new Track();
     track.id = response.id;
     track.title = response.title;

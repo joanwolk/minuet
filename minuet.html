@@ -15,7 +15,9 @@
       <a onclick="player.pausePlayback();">Pause</a>
     </div>
 
-    <form id= "addTrack" action="">
+    <form id= "addTrack" action="javascript:Track.fromUrl(document.getElementById('newTrack').value, function(response){
+      player.queue.add(response);
+      });">
       <input type='text' name="newTrack" id="newTrack">
       <a href="#" class="button" onclick="Track.fromUrl(document.getElementById('newTrack').value, function(response){
       player.queue.add(response);
@@ -23,6 +25,12 @@
     </form>
 
     <div id='queue' class='table'>
+    </div>
+
+    <div class='clear'>
+      <a href="#" class="button" onclick="player.queue.clear();">
+        Clear queue
+      </a>
     </div>
 
     <script src="Track.js"></script>

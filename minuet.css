@@ -29,7 +29,12 @@ form input[type='text'] {
   margin-bottom: 0.25em;
 }
 
-form a.button {
+div.clear {
+  width: 90%;
+  margin: 1.5em auto;
+}
+
+a.button {
   display: block;
   text-align: center;
   width: 45%;

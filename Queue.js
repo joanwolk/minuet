@@ -31,20 +31,69 @@ Queue.prototype.add = function(track) {
 
 /** 
  * Save the queue in its current state
+ * This runs the callback to re-render the view
+ * and also streams if any tracks are present.
  */
 Queue.prototype.save = function() {
   localStorage.listTracks = JSON.stringify(this.list);
   this.callback();
-  this.stream();
+  if (this.list.length > 0) {
+    this.stream();
+  }
 };
 
 /** 
  * Switch the track position of two tracks
+ * The first argument is the index of a track
+ * The second argument is the offset of the track to switch with
+ * This triggers the queue to be saved.
  */
-// Queue.prototype.swap = function(track1, track2) {
+Queue.prototype.swap = function(trackIndex, offset) {
+  // return null if trying to move the first track earlier
+  if (trackIndex === 0 && offset === -1) {
+    return null;
+  }
 
-// };
+  // return null if trying to move the last track later
+  if ((trackIndex === this.list.length - 1) && offset === 1) {
+    return null;
+  }
 
+  // return null if track index is invalid
+  // TODO: this should be a try/catch
+  if (trackIndex >= this.list.length || trackIndex < 0) {
+    return null;
+  }
+
+  var track1 = this.list[trackIndex];
+  var track2 = this.list[trackIndex + offset];
+
+  this.list[trackIndex] = track2;
+  this.list[trackIndex + offset] = track1;
+
+  this.save();
+};
+
+/** 
+ * Remove the track from the queue
+ * This triggers the queue to be saved.
+ */
+Queue.prototype.remove = function(track) {
+  // splice out 1 item from the list array at index track
+  this.list.splice(track, 1);
+
+  this.save();
+};
+
+/** 
+ * Clear all tracks from the queue
+ * This triggers the queue to be saved.
+ */
+Queue.prototype.clear = function() {
+  this.list = [];
+
+  this.save();
+};
 
 /**
  * Advance to the next track and play it

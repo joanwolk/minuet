@@ -26,10 +26,15 @@ QueueView.prototype.render = function() {
   var i = 0;
 
   this.table.innerHTML = '';
+  this.list = this.queue.list;
 
-  for (i=0; i < this.list.length; i++) {
-    var trackView = new TrackView(this.list[i]).render();
+  if (this.list.length === 0) {
+    this.table;
+  } else {
+    for (i=0; i < this.list.length; i++) {
+      var trackView = new TrackView(this.list[i]).render(i, this.queue);
 
-    this.table.appendChild(trackView.el);
+      this.table.appendChild(trackView.el);
+    }
   }
 };
