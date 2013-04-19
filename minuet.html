@@ -26,20 +26,16 @@
       </p>
     </div>
 
-    <form id= "addTrack" action="javascript:Track.fromUrl(document.getElementById('newTrack').value, function(response){
-      player.queue.add(response);
-      });">
+    <form id= "addTrack" action="">
       <input type='text' name="newTrack" id="newTrack">
-      <a href="#" class="button" onclick="Track.fromUrl(document.getElementById('newTrack').value, function(response){
-      player.queue.add(response);
-      });">Add to queue</a>
+      <a href="#" class="button">Add to queue</a>
     </form>
 
     <div id='queue' class='table'>
     </div>
 
     <div class='clear'>
-      <a href="#" class="button" onclick="player.queue.clear();">
+      <a href="#" class="clear button">
         Clear queue
       </a>
     </div>
