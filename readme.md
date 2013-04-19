@@ -18,9 +18,10 @@ Minuet is a player for SoundCloud sounds of all kinds.
 - add tests, both for backend and views
 
 ## How do I run Minuet?
-- Open index.html in your browser. That was easy!
+- Open [Minuet](https://dl.dropboxusercontent.com/u/20193004/minuet/minuet.html) in your browser. That was easy!
 
 ## How do I deploy Minuet?
+- It's a set of static files (HTML, JavaScript, CSS), so you can host a copy pretty much anywhere. I used Dropbox, because it made getting started really fast and easy.
 
 
 ## How is Minuet licensed?
