@@ -37,7 +37,7 @@ Queue.prototype.add = function(track) {
 Queue.prototype.save = function() {
   localStorage.listTracks = JSON.stringify(this.list);
   this.callback();
-  if (this.list.length > 0) {
+  if (this.list.length) {
     this.stream();
   }
 };
@@ -97,18 +97,20 @@ Queue.prototype.clear = function() {
 
 /**
  * Advance to the next track and play it
+ * Removes the track that finished
  */
 Queue.prototype.playNextSound = function() {
-  var current = this.currentTrack;
-  var next = this.currentTrack + 1;
+  this.list.shift();
 
-  if (this.list[next]) {
-    this.currentTrack = next;
-    this.stream();
+  if (this.list.length) {
+    // save, triggering streaming next sound and view rendering
+    this.save();
     // TODO: this order reliance is brittle!
     this.startPlayback();
   } else {
+    // set sound null before saving, so we don't stream the old sound again
     this.sound = null;
+    this.save();
   }
 
 };
@@ -118,7 +120,7 @@ Queue.prototype.playNextSound = function() {
  */
 Queue.prototype.stream = function() {
   var me = this;
-  var track = this.list[this.currentTrack]['id'];
+  var track = this.list[0]['id'];
 
   SC.stream("/tracks/"+track, function(sound) {
     me.sound = sound;
@@ -140,7 +142,9 @@ Queue.prototype.startPlayback = function() {
  * Pause playback
  */
 Queue.prototype.pausePlayback = function() {
-  this.sound.pause();
+  if (this.sound) {
+    this.sound.pause();
+  }
 };
 
 /** 
