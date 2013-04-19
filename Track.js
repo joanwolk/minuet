@@ -35,13 +35,13 @@ Track.prototype.loadMetadata = function() {
  * Create a track from the user-facing SoundCloud URL
  */
 Track.fromUrl = function(url, callback) {
-  if (!url.match(/^https*\:\/\//)) {
-    url = "http://"+url;
+  if (!url.match(/^https*\:\/\//) && url.match(/^https*\:\/\//i)) {
+    return alert("URLs are invalid unless 'http' or 'https' are all lowercase!")
   }
 
   SC.get("/resolve?url="+url, function(response, error) {
     if (error) {
-      return alert(error);
+      return alert(error.message + " - There may be an error with the URL entered. Please use a valid URL for a single public SoundCloud track.");
     }
     var track = new Track();
     track.id = response.id;

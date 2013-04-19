@@ -21,11 +21,11 @@ TrackView.prototype.render = function(index, queue) {
   // index is the index position of the track in the queue
   // queue is the queue the track belongs to
 
-  var up = '<div class="up">up</div>';
-  var down = '<div class="down">down</div>';
+  var up = '<div class="up icon-caret-up"></div>';
+  var down = '<div class="down icon-caret-down"></div>';
   var controls = '<div class="controls cell">' + up + down + '</div>';
   var title = '<div class="title cell">' + this.title + '</div>';
-  var remove = '<div class="remove cell">remove</div>';
+  var remove = '<div class="remove cell icon-trash"></div>';
 
   this.el.innerHTML = controls + title + remove;
 

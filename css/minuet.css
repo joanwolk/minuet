@@ -21,6 +21,28 @@ body > div {
 
 .top a {
   cursor: pointer;
+  display: inline-block;
+  font-size: 2em;
+  color: white;
+  background-color: #f60; /* SoundCloud orange */
+  width: 1em;
+  height: 1em;
+  padding: 0.3em;
+  text-align: center;
+  border-radius: 2em;
+}
+
+.top a.icon-play {
+  text-align: right;
+}
+
+.top img {
+  float: right;
+  margin-left: 1em;
+}
+
+.connect {
+  float: right;
 }
 
 form {
@@ -85,18 +107,31 @@ a.button {
 
 .listRow .cell {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .listRow .cell.controls {
-  margin-left: 10px;
-  width: 3em;
+  width: 1em;
+  text-align: center;
+}
+
+.listRow .cell.controls .up {
+  display: block;
+  color: #f60;
+}
+
+.listRow .cell.controls .down {
+  display: block;
+  color: #f60;
 }
 
 .listRow .cell.title {
+  line-height: 2;
 }
 
 .listRow .cell.remove {
   margin-right: 10px;
   float: right;
+  line-height: 2;
+  color: #f60;
 }

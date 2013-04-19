@@ -107,6 +107,8 @@ Queue.prototype.playNextSound = function() {
     this.stream();
     // TODO: this order reliance is brittle!
     this.startPlayback();
+  } else {
+    this.sound = null;
   }
 
 };
@@ -127,6 +129,10 @@ Queue.prototype.stream = function() {
  * Start playback
  */
 Queue.prototype.startPlayback = function() {
+  // don't try to play an empty queue
+  if (this.list.length === 0) {
+    return;
+  }
   this.sound.play({multiShot: false, onfinish: this.playNextSound.bind(this)});
 };
 
